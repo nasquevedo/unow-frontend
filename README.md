@@ -6,6 +6,11 @@ This is the frontend side for the unow test. This project was designed using Rea
 
 First of all, clone this repository:
 
+```sh
+git clone https://github.com/nasquevedo/unow-frontend.git
+```
+Copy the .env.local content into the .env file: ```cp .env.local .env``` and replace the variables with the info that was sent in the email
+
 Then, install the dependencies:
 
 ```sh
