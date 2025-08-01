@@ -12,5 +12,5 @@ export const Register = async (formData) => {
 
     const response = await useFetch(registerEndpoint, options)
 
-    return response
+    return response.success ?? false
 }

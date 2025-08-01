@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { useSelector } from "react-redux"
 import { UserContext } from "../context/UserContext"
 import AdminForm from "../components/AdminForm/AdminForm"
-import Table from "../components/Table/Table"
+import { Container, Row, Col } from 'react-bootstrap'
+import TableEmployees from '../components/Table/Table'
 
 const Dashboard = () => {
     const [ user, setUser ] = useState({
@@ -21,13 +22,18 @@ const Dashboard = () => {
     
     return (
     <UserContext.Provider value={user}>
-        <div>
-            <AdminForm setUser={setUser} />
-        </div>
-        <div>
-            <h1>List of Users</h1>
-            <Table setUser={setUser} />
-        </div>
+        <Container>
+            <Row>
+                <Col xs="4">
+                <h3 className="text-center">{ user.id !== '' ? 'Edit' : 'Create' } Employee</h3>
+                    <AdminForm setUser={setUser} />
+                </Col>
+                <Col xs="8">
+                    <h3 className="text-center">List of Employees</h3>
+                    <TableEmployees setUser={setUser} />
+                </Col>
+            </Row>
+        </Container>
     </UserContext.Provider>
     )
 }

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { set, setUser } from '../../../shared/user/userSlice'
 import { Login, GetUserByToken } from '../../services/login'
 import { Navigate } from 'react-router-dom'
+import { Button, Form } from 'react-bootstrap'
 
 const LoginForm = () => {
     const dispatch = useDispatch()
@@ -25,10 +26,11 @@ const LoginForm = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Email</label>
-                <input 
+        <Form onSubmit={handleSubmit}>
+            <h2 className="text-center">Welcome!</h2>
+            <Form.Group>
+                <Form.Label>Email</Form.Label>
+                <Form.Control 
                     type="email" 
                     id="email" 
                     name="email" 
@@ -36,10 +38,10 @@ const LoginForm = () => {
                     value={ email }
                     required 
                 />
-            </div>
-            <div>
-                <label>Password</label>
-                <input 
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Password</Form.Label>
+                <Form.Control 
                     type="password" 
                     id="password" 
                     name="password" 
@@ -47,9 +49,11 @@ const LoginForm = () => {
                     value={ password }
                     required 
                 />
-            </div>
-            <button type="submit">Login</button>
-        </form>
+            </Form.Group>
+            <Form.Group>
+                <Button variant="primary" className="w-100" type="submit">Login</Button>
+            </Form.Group>
+        </Form>
     )
 }
 

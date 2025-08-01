@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react'
 import { useSelector } from "react-redux"
 import { Employees } from '../../services/employees'
 import Actions from '../Actions/Actions'
+import { Table } from 'react-bootstrap'
 
-const Table = ({ setUser }) => {
+const TableEmployees = ({ setUser }) => {
     const { token } = useSelector(state => state.user)
 
     
@@ -20,7 +21,7 @@ const Table = ({ setUser }) => {
     }, [token])
 
     return (
-        <table>
+        <Table responsive>
             <thead>
                 <tr>
                     <th>ID</th>
@@ -43,15 +44,15 @@ const Table = ({ setUser }) => {
                                 <td>{item.name}</td>
                                 <td>{item.lastName}</td>
                                 <td>{item.position}</td>
-                                <td>{item.birthdate.date}</td>
+                                <td>{item.birthdate.date.split(" ")[0]}</td>
                                 <th><Actions id={item.id} setUser={setUser} token={token} /></th>
                             </tr>
                         )
                     })
                 }
             </tbody>
-        </table>
+        </Table>
     )
 }
 
-export default Table
+export default TableEmployees

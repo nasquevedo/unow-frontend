@@ -26,8 +26,8 @@ const Actions = ({ id, setUser, token }) => {
 
     return (
         <div>
-            <button type="button" onClick={edit}>Editar</button>
-            <button type="button" onClick={destroy}>Eliminar</button>
+            <i class="bi bi-pencil-fill" onClick={edit}></i>
+            <i class="bi bi-trash3-fill" onClick={destroy}></i>
         </div>
     )
 }
