@@ -1,17 +1,33 @@
-import { Col, Navbar } from "react-bootstrap"
+import { Col, Row, Navbar, NavDropdown } from "react-bootstrap"
 import Logout from "../Logout/Logout"
 import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 
 const Nav = () => {
-    const { token } = useSelector(state => state.user)
+    const { token, roles, name, lastName } = useSelector(state => state.user)
     const isLogged = token ?? false
     return (
         <Navbar expand="lg" className="bg-body-tertiary justify-content-between" data-bs-theme="dark">
             <Navbar.Brand>Unow Test!</Navbar.Brand>
             { isLogged &&
-                <Col xs="auto">
-                    <Logout /> 
-                </Col> 
+                <Row>
+                    <Col xs="auto">
+                        {roles[0] === 'ROLE_USER' && 
+                            <NavDropdown style={{ color: 'white' }} title={`${name} ${lastName}`} id="basic-nav-dropdown">
+                                <NavDropdown.Item href="#">
+                                    <Link to="/change-password">Change password</Link>
+                                </NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="#">
+                                    Delete Account
+                                </NavDropdown.Item>
+                            </NavDropdown>
+                        }
+                    </Col>
+                    <Col xs="auto">
+                        <Logout /> 
+                    </Col> 
+                </Row>
             }
         </Navbar>
     )

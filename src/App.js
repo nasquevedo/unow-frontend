@@ -7,6 +7,7 @@ import Dashboard from "./Admin/pages/Dashboard";
 import PublicRoute from "./shared/components/PublicRoute/PublicRoute";
 import ProtectedRoute from "./shared/components/ProtectedRoute/ProtectedRoute";
 import Profile from "./User/pages/Profile";
+import ChangePassword from "./shared/pages/ChangePassword";
 
 function App() {
   return (
@@ -31,6 +32,11 @@ function App() {
           <Route path="/profile" element= {
             <ProtectedRoute>
               <Profile />
+            </ProtectedRoute>
+          } />
+          <Route path="/change-password" element={
+            <ProtectedRoute>
+              <ChangePassword />
             </ProtectedRoute>
           } />
         </Route>

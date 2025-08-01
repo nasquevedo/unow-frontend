@@ -1,27 +1,29 @@
+import { Row, Col } from 'react-bootstrap'
+
 const InfoMode = ({ user }) => {
     return (
-        <>
-            <div>
+        <Row>
+            <Col xs="6">
                 <h6>Email</h6>
                 <p>{ user.email }</p>
-            </div>
-            <div>
+            </Col>
+            <Col xs="6">
                 <h6>Postition</h6>
                 <p>{ user.position}</p>
-            </div>
-            <div>
+            </Col>
+            <Col xs="6">
                 <h6>Name</h6>
                 <p>{ user.name }</p>
-            </div>
-            <div>
+            </Col>
+            <Col xs="6">
                 <h6>Last Name</h6>
                 <p>{ user.lastName }</p>
-            </div>
-            <div>
+            </Col>
+            <Col xs="6">
                 <h6>Birthdate</h6>
                 <p>{user.birthdate}</p>
-            </div>
-        </>
+            </Col>
+        </Row>
     )
 }
 

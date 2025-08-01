@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { setUser } from '../../../shared/user/userSlice'
 import { Positions } from '../../../shared/services/position'
 import { Update } from '../../services/update'
+import { Row, Form, Col, Button } from 'react-bootstrap'
 
 const EditMode = ({ user }) => {
     const dispatch = useDispatch()
@@ -14,7 +15,7 @@ const EditMode = ({ user }) => {
         birthdate: user.birthdate
     })
     const [positions, setPositions] = useState({})
-    const [ loading, setLoading ] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         const getPosition = async () => {
@@ -38,63 +39,65 @@ const EditMode = ({ user }) => {
     }
 
     return (
-        <form onSubmit={submit}>
+        <Form onSubmit={submit}>
             {loading && <span>Loading ... </span>}
-            <div>
-                <label>Email</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={user.email}
-                    disabled
-                />
-            </div>
-            <div>
-                <label>Postition</label>
-                <select
-                    id="position"
-                    name="position"
-                    value={formData.position}
-                    onChange={ (e) => { setFormData({ ...formData, ['position']: e.target.value }) }}
-                >
-                    { positions.length > 0 && 
-                        positions.map((item, index) => <option key={index} value={item}>{ item }</option>)
-                    }
-                </select>
-            </div>
-            <div>
-                <label>Name</label>
-                <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    value={formData.name}
-                    onChange={ (e) => { setFormData({ ...formData, ['name']: e.target.value }) }}
-                />
-            </div>
-            <div>
-                <label>Last Name</label>
-                <input
-                    type="text"
-                    name="lastName"
-                    id="lastName"
-                    value={formData.lastName}
-                    onChange={ (e) => { setFormData({ ...formData, ['lastName']: e.target.value }) }}
-                />
-            </div>
-            <div>
-                <label>Birthdate</label>
-                <input
-                    type="date"
-                    name="birthdate"
-                    id="birthdate"
-                    value={formData.birthdate.split(" ")[0]}
-                    onChange={(e) => { setFormData({ ...formData, ['birthdate']: e.target.value }) }}
-                />
-            </div>
-            <button type="submit">Save</button>
-        </form>
+            <Row>
+                <Col xs="6">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={user.email}
+                        disabled
+                    />
+                </Col>
+                <Col xs="6">
+                    <Form.Label>Postition</Form.Label>
+                    <Form.Select
+                        id="position"
+                        name="position"
+                        value={formData.position}
+                        onChange={(e) => { setFormData({ ...formData, ['position']: e.target.value }) }}
+                    >
+                        {positions.length > 0 &&
+                            positions.map((item, index) => <option key={index} value={item}>{item}</option>)
+                        }
+                    </Form.Select>
+                </Col>
+                <Col xs="6">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="name"
+                        id="name"
+                        value={formData.name}
+                        onChange={(e) => { setFormData({ ...formData, ['name']: e.target.value }) }}
+                    />
+                </Col>
+                <Col xs="6">
+                    <Form.Label>Last Name</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="lastName"
+                        id="lastName"
+                        value={formData.lastName}
+                        onChange={(e) => { setFormData({ ...formData, ['lastName']: e.target.value }) }}
+                    />
+                </Col>
+                <Col xs="6">
+                    <Form.Label>Birthdate</Form.Label>
+                    <Form.Control
+                        type="date"
+                        name="birthdate"
+                        id="birthdate"
+                        value={formData.birthdate.split(" ")[0]}
+                        onChange={(e) => { setFormData({ ...formData, ['birthdate']: e.target.value }) }}
+                    />
+                </Col>
+            </Row>
+            <Button type="submit" variant="success">Save</Button>
+        </Form>
     )
 }
 
