@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 import InfoMode from "../components/Profile/InfoMode"
 import EditMode from '../components/Profile/EditMode'
 import { Row, Col } from 'react-bootstrap'
-import styles from './Profile.module.css'
+import ProfileContainer from '../../shared/components/ProfileContainer/ProfileContainer'
 
 const Profile = () => {
     const [ editMode, setEditMode ] = useState(false)
@@ -18,7 +18,7 @@ const Profile = () => {
     }
 
     return (
-        <div className={styles['profile-container']}>
+        <ProfileContainer>
             <h2 className="text-center">Informacion del usuario</h2>
             <Row>
                 {!editMode && <i className="bi bi-pencil-fill text-end" onClick={edit}></i>}
@@ -36,7 +36,7 @@ const Profile = () => {
                 </Col> 
             }
             </Row>
-        </div>
+        </ProfileContainer>
     )
 }
 

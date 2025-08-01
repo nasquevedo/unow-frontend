@@ -13,14 +13,10 @@ const Nav = () => {
                 <Row>
                     <Col xs="auto">
                         {roles[0] === 'ROLE_USER' && 
-                            <NavDropdown style={{ color: 'white' }} title={`${name} ${lastName}`} id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#">
-                                    <Link to="/change-password">Change password</Link>
-                                </NavDropdown.Item>
+                            <NavDropdown style={{ color: 'white' }} title={`${name} ${lastName}`} id="basic-nav-dropdown"> 
+                                <Link className="navdropdowm-item" to="/change-password">Change password</Link>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#">
-                                    Delete Account
-                                </NavDropdown.Item>
+                                <Link to="/delete-account">Delete Account</Link>
                             </NavDropdown>
                         }
                     </Col>

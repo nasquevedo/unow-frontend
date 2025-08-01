@@ -8,6 +8,7 @@ import PublicRoute from "./shared/components/PublicRoute/PublicRoute";
 import ProtectedRoute from "./shared/components/ProtectedRoute/ProtectedRoute";
 import Profile from "./User/pages/Profile";
 import ChangePassword from "./shared/pages/ChangePassword";
+import DeleteAccount from "./shared/pages/DeleteAccount";
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
               <Dashboard />
             </ProtectedRoute>
           } />
-          <Route path="/profile" element= {
+          <Route path="/profile" element={
             <ProtectedRoute>
               <Profile />
             </ProtectedRoute>
@@ -39,8 +40,13 @@ function App() {
               <ChangePassword />
             </ProtectedRoute>
           } />
+          <Route path="/delete-account" element={
+            <ProtectedRoute>
+              <DeleteAccount></DeleteAccount>
+            </ProtectedRoute>
+          } />
         </Route>
-        </Routes>
+      </Routes>
     </BrowserRouter>
   );
 }
