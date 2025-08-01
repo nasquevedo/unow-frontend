@@ -16,6 +16,8 @@ git clone https://github.com/nasquevedo/unow-frontend.git
 ```
 Move to the project folder: ```cd unow-frontend```
 
+*** Note: use the branch develop provisionally: ```git checkout develop```
+
 Copy the .env.local content into the .env file: ```cp .env.local .env```
 
 Then, install the dependencies:
