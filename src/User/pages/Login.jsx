@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom"
 import LoginForm from "../components/Login/LoginForm"
+import MainContainer from "../../shared/components/MainContainer/MainContainer"
 
 const Login = () => {
     return (
-        <div>
+        <MainContainer>
             <LoginForm />
-            <Link to="/register">Create an account</Link>
-        </div>
+            <Link className="text-center" to="/register">Create an account</Link>
+        </MainContainer>
     )
 }
 

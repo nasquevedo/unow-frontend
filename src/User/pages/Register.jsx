@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom"
 import RegisterForm from "../components/Register/RegisterForm"
+import MainContainer from "../../shared/components/MainContainer/MainContainer"
 
 const Register = () => {
     return (
-        <div>
+        <MainContainer>
             <RegisterForm />
-            <Link to="/">Are you already have an account?</Link>
-        </div>
+            <Link className="text-center" to="/">Are you already have an account?</Link>
+        </MainContainer>
     )
 }
 
